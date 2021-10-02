@@ -25,12 +25,8 @@ function getRandomIntInclusive(min, max) {
 
 function getRandomFloatInclusive(min, max,  num) {
 
-  if (!isPositiveNumbers(min, max) || min > max) {
+  if (!isPositiveNumbers(min, max) || min > max || min === max) {
     return 'Не корректный диапазон';
-  }
-
-  if (min === max) {
-    return min;
   }
 
   return (Math.random() * (max - min) + min).toFixed(num);
