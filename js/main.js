@@ -1,15 +1,6 @@
-import {getAdsItem} from './get-ads-item.js';
+/* eslint-disable no-unused-vars */
+import { getAdsList } from './get-ads-list';
 
-function getAdsList() {
+const adsList = getAdsList();
 
-  const adsList = [];
-
-  // eslint-disable-next-line id-length
-  for (let i = 0; i < 10; i++) {
-    adsList.push(getAdsItem());
-  }
-
-  return adsList;
-}
-
-getAdsList();
+let cardTemplate = document.getElementById('#card');
