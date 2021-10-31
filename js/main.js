@@ -1,6 +1,6 @@
-import { getAdsLayout } from './get-ads-layout';
+import { fillAdsTemplate } from './fill-ads-template.js';
 
-//for (let i = 0; i < adsList.length; i++) {
-
-getAdsLayout(0);
+const mapCanvas = document.querySelector('#map-canvas');
+const newCard = fillAdsTemplate(0);
+mapCanvas.append(newCard);
 

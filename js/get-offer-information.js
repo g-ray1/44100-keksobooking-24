@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import getRandomPositiveInteger from './utils/get-random-positive-integer.js';
+import {getRandomPositiveInteger} from './utils/get-random-positive-integer.js';
 
 function getOfferInformation(location) {
 

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import getRandomPositiveFloat from './get-random-positive-float.js';
+import {getRandomPositiveFloat} from './utils/get-random-positive-float.js';
 
 function getLocationCoordinates() {
 
