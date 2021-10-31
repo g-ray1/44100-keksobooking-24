@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import getRandomPositiveInteger from './utils/get-random-positive-integer.js';
+import {getRandomPositiveInteger} from './utils/get-random-positive-integer.js';
 
 const avatarsNumbers = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'];
 

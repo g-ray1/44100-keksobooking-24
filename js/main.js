@@ -1,15 +1,6 @@
-import {getAdsItem} from './get-ads-item.js';
+import { fillAdsTemplate } from './fill-ads-template.js';
 
-function getAdsList() {
+const mapCanvas = document.querySelector('#map-canvas');
+const newCard = fillAdsTemplate(0);
+mapCanvas.append(newCard);
 
-  const adsList = [];
-
-  // eslint-disable-next-line id-length
-  for (let i = 0; i < 10; i++) {
-    adsList.push(getAdsItem());
-  }
-
-  return adsList;
-}
-
-getAdsList();
