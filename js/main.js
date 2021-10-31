@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
-import { getAdsList } from './get-ads-list';
+import { getAdsLayout } from './get-ads-layout';
 
-const adsList = getAdsList();
+//for (let i = 0; i < adsList.length; i++) {
 
-let cardTemplate = document.getElementById('#card');
+getAdsLayout(0);
+
