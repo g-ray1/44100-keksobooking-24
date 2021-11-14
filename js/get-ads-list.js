@@ -1,4 +1,4 @@
-import {getAdsItem} from './get-ads-item.js';
+import {getAdItem} from './get-ad-item.js';
 
 function getAdsList() {
 
@@ -6,7 +6,7 @@ function getAdsList() {
 
   // eslint-disable-next-line id-length
   for (let i = 0; i < 10; i++) {
-    adsList.push(getAdsItem());
+    adsList.push(getAdItem());
   }
 
   return adsList;
