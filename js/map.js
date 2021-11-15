@@ -1,7 +1,5 @@
-export { diactivatePage, activatePage} from './toggle-page-state.js';
-import { getAdsList } from './get-ads-list.js';
-import { makeAdMark } from './make-ad-mark.js';
 import { diactivatePage, activatePage } from './toggle-page-state.js';
+import {fillAdTemplate} from './fill-ad-template.js';
 
 diactivatePage();
 
@@ -50,8 +48,45 @@ defaultMark.on('moveend', (evt) => {
   addressInput.value = `${markAdress.lat}, ${markAdress.lng}`;
 });
 
-//отрисовка сгенерированных объявлений
-const adsList = (getAdsList());
-adsList.forEach((adItem) => makeAdMark(adItem, false, map));
-
 map.on('load', activatePage());
+
+//функция отрисовки меток
+function makeAdMark(adItem, draggable) {
+  const newAdIcon = L.icon({
+    iconUrl : '/img/pin.svg',
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+  });
+
+  const adMark = L.marker({
+    lat : adItem.location.lat,
+    lng : adItem.location.lng,
+  },
+  {
+    icon : newAdIcon,
+    draggable : draggable,
+  });
+
+  adMark.addTo(map);
+  adMark.bindPopup(fillAdTemplate(adItem));
+}
+
+//функция возвращения к исходной точке
+function resetMap() {
+
+  defaultMark.setLatLng({
+    lat: defaultLatLng.lat,
+    lng: defaultLatLng.lng,
+  });
+
+  map.setView({
+    lat: defaultLatLng.lat,
+    lng: defaultLatLng.lng,
+  }, 13);
+
+  map.closePopup();
+
+  document.querySelector('#address').value = `${defaultLatLng.lat}, ${defaultLatLng.lng}`;
+}
+
+export {makeAdMark, resetMap};

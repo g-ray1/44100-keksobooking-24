@@ -1,2 +1,3 @@
 import './map.js';
-import './check-form-validate.js';
+import './get-data.js';
+import './form.js';
