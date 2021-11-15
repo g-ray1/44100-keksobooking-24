@@ -6,8 +6,8 @@ const fillAdTemplate = (adItem) => {
   const title = clonedCardTemplate.querySelector('.popup__title');
   title.textContent = adItem.offer.title;
 
-  const adress = clonedCardTemplate.querySelector('.popup__text--address');
-  adress.textContent = adItem.offer.adress;
+  const address = clonedCardTemplate.querySelector('.popup__text--address');
+  address.textContent = adItem.offer.address;
 
   const price = clonedCardTemplate.querySelector('.popup__text--price');
   price.textContent = `${adItem.offer.price} ₽/ночь`;
@@ -37,28 +37,32 @@ const fillAdTemplate = (adItem) => {
   const inOutTime = clonedCardTemplate.querySelector('.popup__text--time');
   inOutTime.textContent = `Заезд после ${adItem.offer.checkin}, выезд до ${adItem.offer.checkout}`;
 
-  const featuresList = clonedCardTemplate.querySelectorAll('.popup__feature');
-  featuresList.forEach((listItem) => {
-    const isAvailable = adItem.offer.features.some(
-      (feature) => listItem.classList.contains(`popup__feature--${feature}`),
-    );
+  if (adItem.offer.features) {
+    const featuresList = clonedCardTemplate.querySelectorAll('.popup__feature');
+    featuresList.forEach((listItem) => {
+      const isAvailable = adItem.offer.features.some(
+        (feature) => listItem.classList.contains(`popup__feature--${feature}`),
+      );
 
-    if (!isAvailable) {
-      listItem.remove();
-    }
-  });
+      if (!isAvailable) {
+        listItem.remove();
+      }
+    });
+  }
 
   const description = clonedCardTemplate.querySelector('.popup__description');
   description.textContent = adItem.offer.description;
 
   const photosList = clonedCardTemplate.querySelector('.popup__photos');
   const photoTemplate = photosList.querySelector('.popup__photo');
-  adItem.offer.photos.forEach(
-    (photo) => {
-      const imgItem = photoTemplate.cloneNode(true);
-      imgItem.src = photo;
-      photosList.append(imgItem);
-    });
+  if (adItem.offer.photos) {
+    adItem.offer.photos.forEach(
+      (photo) => {
+        const imgItem = photoTemplate.cloneNode(true);
+        imgItem.src = photo;
+        photosList.append(imgItem);
+      });
+  }
   photoTemplate.remove();
 
   const avatar = clonedCardTemplate.querySelector('.popup__avatar');
