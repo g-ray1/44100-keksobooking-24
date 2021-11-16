@@ -48,7 +48,10 @@ defaultMark.on('moveend', (evt) => {
   addressInput.value = `${markAdress.lat}, ${markAdress.lng}`;
 });
 
+//активация страницы
 map.on('load', activatePage());
+
+const marksGroup = L.layerGroup().addTo(map);
 
 //функция отрисовки меток
 function makeAdMark(adItem, draggable) {
@@ -67,8 +70,13 @@ function makeAdMark(adItem, draggable) {
     draggable : draggable,
   });
 
-  adMark.addTo(map);
+  adMark.addTo(marksGroup);
   adMark.bindPopup(fillAdTemplate(adItem));
+}
+
+//функция удаления меток
+function deleteMarks() {
+  marksGroup.clearLayers();
 }
 
 //функция возвращения к исходной точке
@@ -89,4 +97,4 @@ function resetMap() {
   document.querySelector('#address').value = `${defaultLatLng.lat}, ${defaultLatLng.lng}`;
 }
 
-export {makeAdMark, resetMap};
+export {makeAdMark, resetMap, deleteMarks};
