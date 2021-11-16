@@ -24,7 +24,9 @@ function activatePage() {
   adFormFieldsets.forEach((fieldset) => {
     fieldset.disabled = false;
   });
+}
 
+function activateFilters() {
   mapFilter.classList.remove('map__filters--disabled');
   mapFilterSelects.forEach((select) => {
     select.disabled = false;
@@ -34,4 +36,4 @@ function activatePage() {
   });
 }
 
-export {diactivatePage, activatePage};
+export {diactivatePage, activatePage, activateFilters};
