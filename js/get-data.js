@@ -3,8 +3,7 @@ import { showErrorLoadMessage } from './show-messages.js';
 import { activateFilters } from './toggle-page-state.js';
 
 const MAX_MARKS_ON_MAP = 10;
-// eslint-disable-next-line prefer-const
-let ads = [];
+const ads = [];
 
 fetch('https://24.javascript.pages.academy/keksobooking/data')
   .then((response) => {
