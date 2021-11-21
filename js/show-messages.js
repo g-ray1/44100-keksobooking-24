@@ -2,7 +2,7 @@ const body = document.querySelector('body');
 const errorTemplate = document.querySelector('#error').content;
 const successTemplate = document.querySelector('#success').content;
 
-function showErrorLoadMessage(text) {
+const showErrorLoadMessage = (text) => {
 
   const errorMessage = document.createElement('p');
   const messageContainer = document.querySelector('.map__filters-container');
@@ -14,9 +14,9 @@ function showErrorLoadMessage(text) {
   setTimeout(() => {
     errorMessage.remove();
   }, 5000);
-}
+};
 
-function showErrorSendMessage() {
+const showErrorSendMessage = () => {
   const errorMessage = errorTemplate.querySelector('.error').cloneNode(true);
   document.querySelector('body').append(errorMessage);
 
@@ -31,9 +31,9 @@ function showErrorSendMessage() {
       body.removeChild(newMessage);
     }
   }, {once: true});
-}
+};
 
-function showSuccessSendMessage() {
+const showSuccessSendMessage = () => {
   const successMessage = successTemplate.querySelector('.success').cloneNode(true);
   body.append(successMessage);
 
@@ -48,7 +48,7 @@ function showSuccessSendMessage() {
       body.removeChild(newMessage);
     }
   }, {once: true});
-}
+};
 
 export {
   showErrorLoadMessage,

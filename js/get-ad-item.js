@@ -2,7 +2,7 @@ import {getAuthorAvatar} from './get-author-avatar.js';
 import {getOfferInformation} from './get-offer-information.js';
 import {getLocationCoordinates} from './get-location-coordinates.js';
 
-function getAdItem() {
+const getAdItem = () => {
 
   const location = getLocationCoordinates();
 
@@ -13,6 +13,6 @@ function getAdItem() {
   };
 
   return adsItem;
-}
+};
 
 export {getAdItem};

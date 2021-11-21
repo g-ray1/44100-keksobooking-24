@@ -38,8 +38,8 @@ const fillAdTemplate = (adItem) => {
   inOutTime.textContent = `Заезд после ${adItem.offer.checkin}, выезд до ${adItem.offer.checkout}`;
 
   if (adItem.offer.features) {
-    const featuresList = clonedCardTemplate.querySelectorAll('.popup__feature');
-    featuresList.forEach((listItem) => {
+    const features = clonedCardTemplate.querySelectorAll('.popup__feature');
+    features.forEach((listItem) => {
       const isAvailable = adItem.offer.features.some(
         (feature) => listItem.classList.contains(`popup__feature--${feature}`),
       );

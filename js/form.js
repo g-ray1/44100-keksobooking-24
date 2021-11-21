@@ -33,10 +33,10 @@ roomsSelect.addEventListener('change', (evt) => {
 });
 
 //тип апартаментов
-typeSelect.addEventListener('click', (evt) => {
+typeSelect.addEventListener('change', (evt) => {
   const selectType = evt.target.value;
   priceInput.min = allTypes[selectType];
-  priceInput.placeholder = allTypes[selectType];
+  priceInput.value = allTypes[selectType];
 });
 
 // время въезда/выезда

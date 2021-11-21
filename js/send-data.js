@@ -1,7 +1,7 @@
 import {showErrorSendMessage, showSuccessSendMessage} from './show-messages.js';
 import {resetMap} from './map.js';
 
-function sendData(data, evt) {
+const sendData = (data, evt) => {
 
   fetch('https://24.javascript.pages.academy/keksobooking',
     {
@@ -18,6 +18,6 @@ function sendData(data, evt) {
     .catch(() => {
       showErrorSendMessage();
     });
-}
+};
 
 export {sendData};

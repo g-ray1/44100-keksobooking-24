@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
 import {getRandomPositiveInteger} from './utils/get-random-positive-integer.js';
 
-function getOfferInformation(location) {
+const getOfferInformation = (location) => {
 
   const offerInformation = {
     title : 'Заголовок',
@@ -18,6 +17,6 @@ function getOfferInformation(location) {
   };
 
   return offerInformation;
-}
+};
 
 export {getOfferInformation};

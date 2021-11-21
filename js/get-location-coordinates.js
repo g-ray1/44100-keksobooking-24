@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
 import {getRandomPositiveFloat} from './utils/get-random-positive-float.js';
 
-function getLocationCoordinates() {
+const getLocationCoordinates = () => {
 
   const locationCoordinates = {
     lat : getRandomPositiveFloat(35.65000, 35.70000, 5),
@@ -9,6 +8,6 @@ function getLocationCoordinates() {
   };
 
   return locationCoordinates;
-}
+};
 
 export {getLocationCoordinates};

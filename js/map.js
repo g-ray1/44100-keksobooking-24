@@ -4,14 +4,14 @@ import {fillAdTemplate} from './fill-ad-template.js';
 diactivatePage();
 
 //настройка карты
-const defaultLatLng = {
+const DEFAULT_LAT_LNG = {
   lat : 35.673718093446034,
   lng : 139.74557876586917,
 };
 
 const map = L.map('map-canvas').setView({
-  lat : defaultLatLng.lat,
-  lng : defaultLatLng.lng,
+  lat : DEFAULT_LAT_LNG.lat,
+  lng : DEFAULT_LAT_LNG.lng,
 }, 13);
 
 L.tileLayer(
@@ -29,8 +29,8 @@ const defaultIcon = L.icon({
 });
 
 const defaultMark = L.marker({
-  lat : defaultLatLng.lat,
-  lng : defaultLatLng.lng,
+  lat : DEFAULT_LAT_LNG.lat,
+  lng : DEFAULT_LAT_LNG.lng,
 },
 {
   draggable : true,
@@ -41,7 +41,7 @@ defaultMark.addTo(map);
 
 //передача координат метки
 const addressInput = document.querySelector('#address');
-addressInput.value = `${defaultLatLng.lat}, ${defaultLatLng.lng}`;
+addressInput.value = `${DEFAULT_LAT_LNG.lat}, ${DEFAULT_LAT_LNG.lng}`;
 
 defaultMark.on('moveend', (evt) => {
   const markAdress = evt.target.getLatLng();
@@ -54,7 +54,7 @@ map.on('load', activatePage());
 const marksGroup = L.layerGroup().addTo(map);
 
 //функция отрисовки меток
-function makeAdMark(adItem, draggable) {
+const makeAdMark = (adItem, draggable) => {
   const newAdIcon = L.icon({
     iconUrl : '/img/pin.svg',
     iconSize: [40, 40],
@@ -72,29 +72,29 @@ function makeAdMark(adItem, draggable) {
 
   adMark.addTo(marksGroup);
   adMark.bindPopup(fillAdTemplate(adItem));
-}
+};
 
 //функция удаления меток
-function deleteMarks() {
+const deleteMarks = () => {
   marksGroup.clearLayers();
-}
+};
 
 //функция возвращения к исходной точке
-function resetMap() {
+const resetMap = () => {
 
   defaultMark.setLatLng({
-    lat: defaultLatLng.lat,
-    lng: defaultLatLng.lng,
+    lat: DEFAULT_LAT_LNG.lat,
+    lng: DEFAULT_LAT_LNG.lng,
   });
 
   map.setView({
-    lat: defaultLatLng.lat,
-    lng: defaultLatLng.lng,
+    lat: DEFAULT_LAT_LNG.lat,
+    lng: DEFAULT_LAT_LNG.lng,
   }, 13);
 
   map.closePopup();
 
-  document.querySelector('#address').value = `${defaultLatLng.lat}, ${defaultLatLng.lng}`;
-}
+  document.querySelector('#address').value = `${DEFAULT_LAT_LNG.lat}, ${DEFAULT_LAT_LNG.lng}`;
+};
 
 export {makeAdMark, resetMap, deleteMarks};

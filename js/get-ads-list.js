@@ -1,6 +1,6 @@
 import {getAdItem} from './get-ad-item.js';
 
-function getAdsList() {
+const getAdsList = () => {
 
   const adsList = [];
 
@@ -10,6 +10,6 @@ function getAdsList() {
   }
 
   return adsList;
-}
+};
 
 export {getAdsList};
