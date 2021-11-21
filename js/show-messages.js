@@ -2,6 +2,8 @@ const body = document.querySelector('body');
 const errorTemplate = document.querySelector('#error').content;
 const successTemplate = document.querySelector('#success').content;
 
+const TIMEOUT = 5000;
+
 const showErrorLoadMessage = (text) => {
 
   const errorMessage = document.createElement('p');
@@ -13,7 +15,7 @@ const showErrorLoadMessage = (text) => {
   messageContainer.append(errorMessage);
   setTimeout(() => {
     errorMessage.remove();
-  }, 5000);
+  }, TIMEOUT);
 };
 
 const showErrorSendMessage = () => {
@@ -39,13 +41,13 @@ const showSuccessSendMessage = () => {
 
   document.addEventListener('click', () => {
     const newMessage = body.querySelector('.success');
-    body.removeChild(newMessage);
+    newMessage.remove();
   }, {once: true});
 
   document.addEventListener('keydown', (evt) => {
     if (evt.key === 'Escape') {
       const newMessage = body.querySelector('.success');
-      body.removeChild(newMessage);
+      newMessage.remove();
     }
   }, {once: true});
 };

@@ -13,7 +13,7 @@ const PRICE_FORK = {
   middle: 50000,
 };
 
-const priceName = {
+const PRICE_NAME = {
   low: 'low',
   middle: 'middle',
   high: 'high',
@@ -22,9 +22,9 @@ const priceName = {
 const filtrationType = (ad) => ad.offer.type === typeSelect.value || typeSelect.value === 'any';
 
 const filtrationPrice = (ad) => priceSelect.value === 'any' ||
-  ad.offer.price < PRICE_FORK.low && priceSelect.value === priceName.low ||
-  ad.offer.price >= PRICE_FORK.low && ad.offer.price < priceName.high && priceSelect.value === priceName.middle ||
-  ad.offer.price >=  PRICE_FORK.high && priceSelect.value === priceName.high;
+  ad.offer.price < PRICE_FORK.low && priceSelect.value === PRICE_NAME.low ||
+  ad.offer.price >= PRICE_FORK.low && ad.offer.price < PRICE_NAME.high && priceSelect.value === PRICE_NAME.middle ||
+  ad.offer.price >=  PRICE_FORK.middle && priceSelect.value === PRICE_NAME.high;
 
 const filtrationRooms = (ad) => ad.offer.rooms === +roomsSelect.value || roomsSelect.value === 'any';
 

@@ -40,15 +40,10 @@ typeSelect.addEventListener('change', (evt) => {
 });
 
 // время въезда/выезда
-timeInSelect.addEventListener('change', (evt) => {
+timeInSelect.addEventListener('click', (evt) => {
   timeOutSelectOptions.forEach((option) => {
-    if (option.value === evt.target.value) {
-      option.selected = true;
-      option.disabled = false;
-    } else {
-      option.selected = false;
-      option.disabled = true;
-    }
+    option.selected = option.value === evt.target.value;
+    option.disabled = option.value !== evt.target.value;
   });
 });
 

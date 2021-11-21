@@ -9,10 +9,12 @@ const DEFAULT_LAT_LNG = {
   lng : 139.74557876586917,
 };
 
+const DEFAULT_ZOOM = 13;
+
 const map = L.map('map-canvas').setView({
   lat : DEFAULT_LAT_LNG.lat,
   lng : DEFAULT_LAT_LNG.lng,
-}, 13);
+}, DEFAULT_ZOOM);
 
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -90,7 +92,7 @@ const resetMap = () => {
   map.setView({
     lat: DEFAULT_LAT_LNG.lat,
     lng: DEFAULT_LAT_LNG.lng,
-  }, 13);
+  }, DEFAULT_ZOOM);
 
   map.closePopup();
 
